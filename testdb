@@ -1,0 +1,27 @@
+testdb> db.Users.find({},{name:1,city:1});
+[
+  { _id: ObjectId('67ee1409736a0696606b140c'), name: 'bb', city: 'yy' },
+  { _id: ObjectId('67ee1411736a0696606b140d'), name: 'cc', city: 'zz' }
+]
+testdb> db.Products.find({},{p_id:1,price:1,stock:1});
+[
+  {
+    _id: ObjectId('67ee141f736a0696606b140e'),
+    p_id: '200',
+    price: '50',
+    stock: '50'
+  },
+  {
+    _id: ObjectId('67ee142b736a0696606b140f'),
+    p_id: '201',
+    price: '200',
+    stock: '10'
+  },
+  {
+    _id: ObjectId('67ee143a736a0696606b1410'),
+    p_id: '202',
+    price: '30',
+    stock: '50'
+  }
+]
+testdb>

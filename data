@@ -1,0 +1,351 @@
+test> use testdb
+switched to db testdb
+testdb> db.Users.find();
+
+testdb> db.Users.insertOne({u_id:"100",name:"aa",city:"xx"})                //insertion
+{
+  acknowledged: true,
+  insertedId: ObjectId('67ee0e5f0c59d0123bb71236')
+}
+testdb> db.Users.insertOne({u_id:"101",name:"bb",city:"yy"})
+{
+  acknowledged: true,
+  insertedId: ObjectId('67ee0e810c59d0123bb71237')
+}
+testdb> db.Users.insertOne({u_id:"102",name:"cc",city:"zz"})
+{
+  acknowledged: true,
+  insertedId: ObjectId('67ee0e8f0c59d0123bb71238')
+}
+testdb> db.Products.insertOne({p_id:"200",name:"choco",price:"50",category:"candy",stock:"50"});
+{
+  acknowledged: true,
+  insertedId: ObjectId('67ee0eff0c59d0123bb71239')
+}
+testdb> db.Products.insertOne({p_id:"201",name:"cake",price:"200",category:"sweet",stock:"10"});
+{
+  acknowledged: true,
+  insertedId: ObjectId('67ee0f210c59d0123bb7123a')
+}
+testdb> db.Products.insertOne({p_id:"202",name:"icecream",price:"30",category:"dessert",stock:"50"});
+{
+  acknowledged: true,
+  insertedId: ObjectId('67ee0f4f0c59d0123bb7123b')
+}
+testdb> db.Orders.insertOne({o_id:"1",u_id:"101",p_id:"200",qty:"20",status:"delivered"});
+{
+  acknowledged: true,
+  insertedId: ObjectId('67ee0fa30c59d0123bb7123c')
+}
+testdb> db.Orders.insertOne({o_id:"2",u_id:"100",p_id:"202",qty:"15",status:"pending"});
+{
+  acknowledged: true,
+  insertedId: ObjectId('67ee0ff00c59d0123bb7123d')
+}
+testdb> db.Orders.insertOne({o_id:"3",u_id:"101",p_id:"201",qty:"5",status:"pending"});
+{
+  acknowledged: true,
+  insertedId: ObjectId('67ee10280c59d0123bb7123e')
+}
+testdb> db.Payments.insertOne({pay_id:"1000",o_id:"1",amount:"60",status:"paid",method:"upi"});
+{
+  acknowledged: true,
+  insertedId: ObjectId('67ee10810c59d0123bb7123f')
+}
+testdb> db.Payments.insertOne({pay_id:"2000",o_id:"2",amount:"40",status:"unpaid",method:"card"});
+{
+  acknowledged: true,
+  insertedId: ObjectId('67ee109e0c59d0123bb71240')
+}
+testdb> db.Payments.insertOne({pay_id:"3030",o_id:"3",amount:"150",status:"unpaid",method:"cash"});
+{
+  acknowledged: true,
+  insertedId: ObjectId('67ee10c30c59d0123bb71241')
+}
+testdb> db.Users.find();            //find()
+[
+  {
+    _id: ObjectId('67ee0e5f0c59d0123bb71236'),
+    u_id: '100',
+    name: 'aa',
+    city: 'xx'
+  },
+  {
+    _id: ObjectId('67ee0e810c59d0123bb71237'),
+    u_id: '101',
+    name: 'bb',
+    city: 'yy'
+  },
+  {
+    _id: ObjectId('67ee0e8f0c59d0123bb71238'),
+    u_id: '102',
+    name: 'cc',
+    city: 'zz'
+  }
+]
+testdb> db.Products.find();
+[
+  {
+    _id: ObjectId('67ee0eff0c59d0123bb71239'),
+    p_id: '200',
+    name: 'choco',
+    price: '50',
+    category: 'candy',
+    stock: '50'
+  },
+  {
+    _id: ObjectId('67ee0f210c59d0123bb7123a'),
+    p_id: '201',
+    name: 'cake',
+    price: '200',
+    category: 'sweet',
+    stock: '10'
+  },
+  {
+    _id: ObjectId('67ee0f4f0c59d0123bb7123b'),
+    p_id: '202',
+    name: 'icecream',
+    price: '30',
+    category: 'dessert',
+    stock: '50'
+  }
+]
+testdb> db.Orders.find();
+[
+  {
+    _id: ObjectId('67ee0fa30c59d0123bb7123c'),
+    o_id: '1',
+    u_id: '101',
+    p_id: '200',
+    qty: '20',
+    status: 'delivered'
+  },
+  {
+    _id: ObjectId('67ee0ff00c59d0123bb7123d'),
+    o_id: '2',
+    u_id: '100',
+    p_id: '202',
+    qty: '15',
+    status: 'pending'
+  },
+  {
+    _id: ObjectId('67ee10280c59d0123bb7123e'),
+    o_id: '3',
+    u_id: '101',
+    p_id: '201',
+    qty: '5',
+    status: 'pending'
+  }
+]
+testdb> db.Payments.find();
+[
+  {
+    _id: ObjectId('67ee10810c59d0123bb7123f'),
+    pay_id: '1000',
+    o_id: '1',
+    amount: '60',
+    status: 'paid',
+    method: 'upi'
+  },
+  {
+    _id: ObjectId('67ee109e0c59d0123bb71240'),
+    pay_id: '2000',
+    o_id: '2',
+    amount: '40',
+    status: 'unpaid',
+    method: 'card'
+  },
+  {
+    _id: ObjectId('67ee10c30c59d0123bb71241'),
+    pay_id: '3030',
+    o_id: '3',
+    amount: '150',
+    status: 'unpaid',
+    method: 'cash'
+  }
+testdb>
+testdb> db.Users.find();
+[
+  {
+    _id: ObjectId('67ee13fd736a0696606b140b'),
+    u_id: '100',
+    name: 'aa',
+    city: 'xx'
+  },
+  {
+    _id: ObjectId('67ee1409736a0696606b140c'),
+    u_id: '101',
+    name: 'bb',
+    city: 'yy'
+  },
+  {
+    _id: ObjectId('67ee1411736a0696606b140d'),
+    u_id: '102',
+    name: 'cc',
+    city: 'zz'
+  }
+]
+testdb> db.Users.find({u_id:100});
+
+testdb> db.Users.find({u_id:"100"});
+[
+  {
+    _id: ObjectId('67ee13fd736a0696606b140b'),
+    u_id: '100',
+    name: 'aa',
+    city: 'xx'
+  }
+]
+testdb>  db.Orders.find({u_id:"100"});
+[
+  {
+    _id: ObjectId('67ee1456736a0696606b1412'),
+    o_id: '2',
+    u_id: '100',
+    p_id: '202',
+    qty: '15',
+    status: 'pending'
+  }
+]
+testdb> db.Orders.updateOne({u_id:"100"},{$set:{status:"cancelled"}});           //update
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+testdb> db.Orders.find({u_id:"100"});           //find
+[
+  {
+    _id: ObjectId('67ee1456736a0696606b1412'),
+    o_id: '2',
+    u_id: '100',
+    p_id: '202',
+    qty: '15',
+    status: 'cancelled'
+  }
+]
+testdb> db.Orders.updateOne({u_id:"101"},{$set:{status:"pending"}});
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+testdb> db.Orders.find({u_id:"101"});
+[
+  {
+    _id: ObjectId('67ee144c736a0696606b1411'),
+    o_id: '1',
+    u_id: '101',
+    p_id: '200',
+    qty: '20',
+    status: 'pending'
+  },
+  {
+    _id: ObjectId('67ee1460736a0696606b1413'),
+    o_id: '3',
+    u_id: '101',
+    p_id: '201',
+    qty: '5',
+    status: 'pending'
+  }
+]
+testdb>  db.Products.updateOne({p_id:"200"},{$set:{category:"sweet"}});
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+testdb> db.Products.find({p_id:"200"});
+[
+  {
+    _id: ObjectId('67ee141f736a0696606b140e'),
+    p_id: '200',
+    name: 'choco',
+    price: '50',
+    category: 'sweet',
+    stock: '50'
+}
+//update using $inc       
+testdb> db.Products.find({p_id:200});
+[
+  {
+    _id: ObjectId('67ee0f78b2c0dcd2ec6b140e'),
+    p_id: 200,
+    name: 'choco',
+    price: 50,
+    category: 'sweet',
+    stock: 40
+  }
+]
+testdb> db.Products.updateOne({p_id:200},{$inc:{stock:+20}});
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+testdb> db.Products.find({p_id:200});
+[
+  {
+    _id: ObjectId('67ee0f78b2c0dcd2ec6b140e'),
+    p_id: 200,
+    name: 'choco',
+    price: 50,
+    category: 'sweet',
+    stock: 60
+  }
+]
+testdb> db.Users.deleteOne({u_id:"100"});
+{ acknowledged: true, deletedCount: 1 }
+testdb> db.Users.find();
+[
+  {
+    _id: ObjectId('67ee1409736a0696606b140c'),
+    u_id: '101',
+    name: 'bb',
+    city: 'yy'
+  },
+  {
+    _id: ObjectId('67ee1411736a0696606b140d'),
+    u_id: '102',
+    name: 'cc',
+    city: 'zz'
+  }
+]
+testdb> db.Products.find({price:{$gt:35}});   //finding based on cond. using $gt (greater)
+[
+  {
+    _id: ObjectId('67ee0fa6b2c0dcd2ec6b140f'),
+    p_id: 201,
+    name: 'cake',
+    price: 200,
+    category: 'sweet',
+    stock: 10
+  }
+]
+testdb> db.Products.find();
+[
+  {
+    _id: ObjectId('67ee0fa6b2c0dcd2ec6b140f'),
+    p_id: 201,
+    name: 'cake',
+    price: 200,
+    category: 'sweet',
+    stock: 10
+  },
+  {
+    _id: ObjectId('67ee0ffab2c0dcd2ec6b1410'),
+    p_id: 202,
+    name: 'ice',
+    price: 30,
+    category: 'dessert',
+    stock: 50
+  }
+]
